@@ -42,17 +42,25 @@ export default function AIChat() {
         }),
       });
 
-      const data = await res.json();
+      // Backend might fail and return non-JSON (or empty body). Parse safely.
+      const text = await res.text();
+      let data: any = null;
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch {
+        data = null;
+      }
 
-      // If backend provides an error, display it (keep i18n fallback otherwise)
-      // If the backend only sends { error }, this prevents falling back to the generic message.
       const reply =
         // Prefer backend-provided error text (and include details when available)
         (typeof data?.error === 'string' && data.error.trim() !== '')
           ? (typeof data?.details === 'string' && data.details.trim() !== ''
               ? `${data.error}: ${data.details}`
               : data.error)
-          : data?.choices?.[0]?.message?.content ?? t('ai.error');
+          : // If we got a non-JSON body, show it (useful for debugging)
+            text && text.trim() !== ''
+            ? text.trim()
+            : data?.choices?.[0]?.message?.content ?? t('ai.error');
 
       setMessages([...newMessages, { role: 'assistant', content: reply }]);
     } catch {
