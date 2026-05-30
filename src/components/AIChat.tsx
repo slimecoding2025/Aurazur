@@ -43,7 +43,11 @@ export default function AIChat() {
       });
 
       const data = await res.json();
-      const reply = data?.choices?.[0]?.message?.content ?? t('ai.error');
+
+      // If backend provides an error, display it (keep i18n fallback otherwise)
+      const reply =
+        data?.error ?? data?.choices?.[0]?.message?.content ?? t('ai.error');
+
       setMessages([...newMessages, { role: 'assistant', content: reply }]);
     } catch {
       setMessages([...newMessages, { role: 'assistant', content: t('ai.error') }]);

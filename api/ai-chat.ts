@@ -54,7 +54,7 @@ export default async function handler(
       console.error('OpenRouter error:', errorData);
       return res
         .status(response.status)
-        .json({ error: 'Failed to get AI response' });
+        .json({ error: 'Failed to get AI response', details: errorData });
     }
 
     const data = await response.json();
