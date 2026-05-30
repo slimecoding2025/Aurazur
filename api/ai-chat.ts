@@ -61,6 +61,7 @@ export default async function handler(
     return res.status(200).json(data);
   } catch (error) {
     console.error('Error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    const message = error instanceof Error ? error.message : String(error);
+    return res.status(500).json({ error: 'Internal server error', details: message });
   }
 }
