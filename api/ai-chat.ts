@@ -50,11 +50,22 @@ export default async function handler(
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
+      // OpenRouter (or proxies) may return non-JSON/empty body on errors.
+      // Parse safely to avoid "Unexpected end of JSON input".
+      const raw = await response.text().catch(() => '');
+      let errorData: any = null;
+      if (raw) {
+        try {
+          errorData = JSON.parse(raw);
+        } catch {
+          errorData = raw;
+        }
+      }
+
       console.error('OpenRouter error:', errorData);
       return res
         .status(response.status)
-        .json({ error: 'Failed to get AI response', details: errorData });
+        .json({ error: 'Failed to get AI response', details: errorData ?? raw ?? null });
     }
 
     const data = await response.json();
