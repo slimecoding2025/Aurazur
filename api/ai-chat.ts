@@ -26,7 +26,7 @@ export default async function handler(
 
     const apiKey = process.env.OPENROUTER_API_KEY;
     if (!apiKey) {
-      return res.status(500).json({ error: 'API key not configured' });
+      return res.status(500).json({ error: 'API key not configured', details: 'OPENROUTER_API_KEY is missing in server environment' });
     }
 
     // Call OpenRouter API
