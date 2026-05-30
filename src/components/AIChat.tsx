@@ -45,8 +45,11 @@ export default function AIChat() {
       const data = await res.json();
 
       // If backend provides an error, display it (keep i18n fallback otherwise)
+      // If the backend only sends { error }, this prevents falling back to the generic message.
       const reply =
-        data?.error ?? data?.choices?.[0]?.message?.content ?? t('ai.error');
+        (typeof data?.error === 'string' && data.error.trim() !== '')
+          ? data.error
+          : data?.choices?.[0]?.message?.content ?? t('ai.error');
 
       setMessages([...newMessages, { role: 'assistant', content: reply }]);
     } catch {
