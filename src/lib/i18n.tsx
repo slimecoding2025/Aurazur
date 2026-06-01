@@ -12,6 +12,7 @@ interface I18nContextType {
 const translations: Record<Language, Record<string, string>> = {
   fr: {
     // Navbar
+
     'nav.home': 'Accueil',
     'nav.buy': 'Achat',
     'nav.sell': 'Vente',
@@ -124,6 +125,48 @@ const translations: Record<Language, Record<string, string>> = {
     'ai.thinking': 'En train de réfléchir...',
     'ai.error': 'Désolé, une erreur est survenue. Veuillez réessayer.',
 
+    // About
+    'about.tagline': 'Une agence immobilière de confiance à Nabeul & Hammamet',
+    'about.description': 'Nous vous accompagnons du premier contact à la signature, avec transparence, expertise locale et conseil sur mesure pour réussir votre projet immobilier.',
+    'about.clients': '+10 ans d’expertise',
+    'about.clients_title': 'Une équipe proche du terrain',
+    'about.clients_desc': 'Villas, appartements et terrains : nous sélectionnons les meilleures opportunités dans les zones recherchées de Nabeul et Hammamet.',
+    'about.team.title': 'Une équipe dédiée',
+    'about.team.desc': 'Conseillers immobiliers disponibles et réactifs, pour vous guider à chaque étape.',
+    'about.mission.title': 'Notre mission',
+    'about.mission.desc': 'Simplifier votre projet immobilier avec des informations claires et des démarches simplifiées.',
+    'about.trust.title': 'Confiance & transparence',
+    'about.trust.desc': 'Des conseils honnêtes basés sur la réalité du marché local.',
+    'about.expertise.title': 'Expertise locale',
+    'about.expertise.desc': 'Une connaissance approfondie des quartiers, des prix et des opportunités à Nabeul et Hammamet.',
+
+    // Services / Transaction
+    'transaction.title': 'Achat, Vente & Location',
+    'transaction.subtitle': 'Un accompagnement complet, de A à Z',
+    'transaction.description': "Que vous cherchiez à acheter, vendre ou louer, nous vous aidons à prendre la meilleure décision grâce à notre expertise locale.",
+    'transaction.buy': 'Achat',
+    'transaction.achat_desc': 'Évaluer vos besoins, trouver le bien adapté et sécuriser la transaction.',
+    'transaction.sell': 'Vente',
+    'transaction.vente_desc': 'Valoriser votre bien, attirer des acheteurs sérieux et finaliser la vente.',
+    'transaction.annual': 'Location Annuelle',
+    'transaction.location_annuelle_desc': "Sélectionner les bons dossiers et trouver un logement pour l'année.",
+    'transaction.seasonal': 'Location Estivale',
+    'transaction.location_estivale_desc': 'Optimiser la location et proposer des biens adaptés aux périodes touristiques.',
+    'transaction.how_it_works': 'Comment ça marche',
+    'transaction.step1': 'Nous évaluons votre projet',
+    'transaction.step1_desc': 'Discussion de vos critères, budget et objectifs.',
+    'transaction.step2': 'Nous cherchons / préparons les meilleures options',
+    'transaction.step2_desc': 'Sélection des biens, photos, description, et stratégie de mise en relation.',
+    'transaction.step3': 'Nous finalisons la transaction',
+    'transaction.step3_desc': 'Visites, négociation et accompagnement jusqu’à la signature.',
+    'transaction.help': 'Besoin de conseil ?',
+    'transaction.consult': 'Un conseiller vous répond',
+    'transaction.help_desc': 'Dites-nous votre besoin : on vous rappelle rapidement pour avancer.',
+    'transaction.contact': 'Contacter maintenant',
+    'transaction.offer': 'Notre offre',
+    'transaction.offer_title': 'Des services sur mesure',
+    'transaction.offer_desc': 'Une approche professionnelle et des démarches simplifiées pour gagner du temps.',
+
     // Footer
     'footer.tagline': 'Votre partenaire immobilier de confiance à Nabeul et Hammamet.',
     'footer.rights': 'Tous droits réservés.',
@@ -132,6 +175,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.social': 'Réseaux sociaux',
 
     // Property Detail
+
     'detail.description': 'Description',
     'detail.amenities': 'Équipements',
     'detail.contact': 'Contacter l\'agence',

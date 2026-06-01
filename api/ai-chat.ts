@@ -26,11 +26,16 @@ export default async function handler(
 
     const apiKey = process.env.OPENROUTER_API_KEY;
     if (!apiKey) {
-      return res.status(500).json({ error: 'API key not configured', details: 'OPENROUTER_API_KEY is missing in server environment' });
+      return res.status(500).json({
+        error: 'API key not configured',
+        details: 'OPENROUTER_API_KEY is missing in server environment',
+      });
     }
 
     // Call OpenRouter API
-    const response = await fetch('https://openrouter.io/api/v1/chat/completions', {
+    // Some setups rely on Vite dev middleware, others on this Vercel handler.
+    // Include the model in a way that matches OpenRouter.
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
