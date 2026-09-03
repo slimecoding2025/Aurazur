@@ -44,7 +44,7 @@ export default async function handler(
         'X-Title': 'Aurazur Real Estate',
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-2-7b-chat',
+        model: 'inclusionai/ling-3.0-flash-fin:free',
         messages: messages.map((msg) => ({
           role: msg.role,
           content: msg.content,
